@@ -54,7 +54,7 @@ function installVerilator
     echo "Configuring $verilator build as per requirements"
     chmod +x configure
     ./configure
-    make -j$(sysctl -n hw.ncpu) # macOS cpu cores
+    make -j$(nproc) # Linux cpu core count
     sudo make install
     echo "Removing the unessential verilator files........"
     rm -r docs
@@ -95,12 +95,12 @@ function installNGHDL
     sleep 2
     
     chmod +x ../configure
-    ../confi.gure --enable-xspice --disable-debug  --prefix=$HOME/$nghdl/install_dir/ --exec-prefix=$HOME/$nghdl/install_dir/
+    ../configure --enable-xspice --disable-debug  --prefix=$HOME/$nghdl/install_dir/ --exec-prefix=$HOME/$nghdl/install_dir/
             
     # Adding patch to Ngspice base code
     # cp $src_dir/src/outitf.c $HOME/$nghdl/src/frontend
 
-    make -j$(sysctl -n hw.ncpu) # macOS cpu cores
+    make -j$(nproc) # Linux cpu core count
     make install
 
     # Make it executable

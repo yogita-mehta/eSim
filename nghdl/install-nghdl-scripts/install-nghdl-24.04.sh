@@ -65,7 +65,7 @@ function installDependency
   
     # Specific dependency for canberra-gtk modules
     echo "Installing Gtk Canberra modules..........................."
-    sudo apt install -y libcanberra-gtk-module libcanberra-gtk3-module
+    sudo apt install -y libcanberra-gtk3-module
 
     # Specific dependency for nvidia graphic cards
     echo "Installing graphics dependency for Ngspice source build"
